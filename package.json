@@ -1,0 +1,25 @@
+{
+  "name": "cors-node-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/UsmanGorsii/CorsAnyWhereNodeApp.git"
+  },
+  "author": "Usman",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/UsmanGorsii/CorsAnyWhereNodeApp/issues"
+  },
+  "homepage": "https://github.com/UsmanGorsii/CorsAnyWhereNodeApp#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "cors-anywhere": "^0.4.4",
+    "express": "^4.18.2"
+  }
+}
