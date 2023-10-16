@@ -1,0 +1,39 @@
+diff --git a/node_modules/cors-anywhere/lib/cors-anywhere.js b/node_modules/cors-anywhere/lib/cors-anywhere.js
+index 0897f94..80bfe7c 100644
+--- a/node_modules/cors-anywhere/lib/cors-anywhere.js
++++ b/node_modules/cors-anywhere/lib/cors-anywhere.js
+@@ -243,13 +243,15 @@ function parseURL(req_url) {
+       // "//" is omitted.
+       req_url = '//' + req_url;
+     }
+-    req_url = (match[4] === '443' ? 'https:' : 'http:') + req_url;
++    req_url = (match[4] === '443' ? 'https:' : 'https:') + req_url;
+   }
+   var parsed = url.parse(req_url);
+   if (!parsed.hostname) {
+     // "http://:1/" and "http:/notenoughslashes" could end up here.
+     return null;
+   }
++  console.log("this is the parsed URL");
++  console.log(parsed);
+   return parsed;
+ }
+ 
+@@ -382,7 +384,7 @@ function getHandler(options, proxy) {
+     }
+ 
+     var isRequestedOverHttps = req.connection.encrypted || /^\s*https/.test(req.headers['x-forwarded-proto']);
+-    var proxyBaseUrl = (isRequestedOverHttps ? 'https://' : 'http://') + req.headers.host;
++    var proxyBaseUrl = (isRequestedOverHttps ? 'https://' : 'https://') + req.headers.host;
+ 
+     corsAnywhere.removeHeaders.forEach(function(header) {
+       delete req.headers[header];
+@@ -421,7 +423,7 @@ exports.createServer = function createServer(options) {
+   if (options.httpsOptions) {
+     server = require('https').createServer(options.httpsOptions, requestHandler);
+   } else {
+-    server = require('http').createServer(requestHandler);
++    server = require('https').createServer(options.httpsOptions, requestHandler);
+   }
+ 
+   // When the server fails, just show a 404 instead of Internal server error
