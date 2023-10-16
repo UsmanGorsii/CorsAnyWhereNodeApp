@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/6f4582c5-8740-4203-877b-29a9886f3289/resourceGroups/cors-any-where/providers/Microsoft.Web/sites/wilbradcorsanywhere",
+    "appService.deploySubpath": "."
+}
